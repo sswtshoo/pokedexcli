@@ -10,23 +10,23 @@ func TestCleanInput(t *testing.T) {
 		expected []string
 	}{
 		{
-			input: " hello world",
+			input: " hello world ",
 			expected: []string{"hello", "world"},
 		}, 
 		{
-			input: "Mitochondria is the powerhouse of the cell!",
-			expected: []string{"mitochondria", "is", "the", "powerhouse", "of", "the", "cell!"},
+			input: "Lessa GO",
+			expected: []string{"lessa", "go"},
 		},
 		{
-			input: "We are going to the moon!",
-			expected: []string{"we", "are", "going", "to", "the", "moon!"},
+			input: "i wOnDer",
+			expected: []string{"i", "wonder"},
 		},
 	}
 
 	for _, cs := range cases {
 		actual := cleanInput(cs.input)
 		if len(actual) != len(cs.expected) {
-			t.Errorf("Failed! \nExpecting: %v, Got: %v", cs.expected, actual)
+			t.Errorf("Mismatched lengths, expected: %d, got: %d", len(cs.expected), len(actual))
 		}
 		flag := true
 		for i := range actual {
@@ -40,5 +40,3 @@ func TestCleanInput(t *testing.T) {
 		}
 	}
 }
-
-
